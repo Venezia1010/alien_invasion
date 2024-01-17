@@ -36,4 +36,5 @@ def run_game():
         pygame.display.flip()
 
 # Инициализация игры и запуск основного цикла
-run_game()
+if __name__ == '__main__':
+    run_game()
