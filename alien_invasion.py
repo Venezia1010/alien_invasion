@@ -4,6 +4,8 @@ import sys
 import pygame
 # Модуль settings
 from settings import Settings
+# Модуль с кораблем
+from ship import Ship
 
 def run_game():
     """Инициализирует pygame, settings и обьект экрана"""
@@ -21,6 +23,9 @@ def run_game():
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     # Титл окна
     pygame.display.set_caption("Alien Invasion")
+
+    # Создание корабля
+    ship = Ship(screen)
     
 
 
@@ -34,6 +39,7 @@ def run_game():
         
         # При каждом проходе цикла перерисовывается экран
         screen.fill(ai_settings.bg_color)
+        ship.blitme()
         # Отображение последнего прорисованного экрана
         pygame.display.flip()
 
