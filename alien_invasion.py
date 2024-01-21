@@ -1,5 +1,3 @@
-# Модуль sys нужен чтобы по команде игрока завершить игру
-import sys
 # Модуль pygame для написания всех аспектов игры
 import pygame
 # Модуль settings с настройками игры при запуске
@@ -38,8 +36,7 @@ def run_game():
         gf.check_events()
         
         # При каждом проходе цикла перерисовывается экран
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
+        gf.update_screen(ai_settings, screen, ship)
         # Отображение последнего прорисованного экрана
         pygame.display.flip()
 
