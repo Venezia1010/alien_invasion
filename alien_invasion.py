@@ -1,11 +1,13 @@
-# Модуль sys нужет чтобы по команде игрока завершить игру
+# Модуль sys нужен чтобы по команде игрока завершить игру
 import sys
 # Модуль pygame для написания всех аспектов игры
 import pygame
-# Модуль settings
+# Модуль settings с настройками игры при запуске
 from settings import Settings
 # Модуль с кораблем
 from ship import Ship
+# Импорт модуля с функция для самой игры
+import game_functions as gf
 
 def run_game():
     """Инициализирует pygame, settings и обьект экрана"""
@@ -33,9 +35,7 @@ def run_game():
     while True:
         # Отслеживание событий клавиатуры и мыши
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.check_events()
         
         # При каждом проходе цикла перерисовывается экран
         screen.fill(ai_settings.bg_color)
