@@ -33,7 +33,8 @@ def run_game():
     while True:
         # Отслеживание событий клавиатуры и мыши
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
-        gf.check_events()
+        gf.check_events(ship)
+        ship.update()
         
         # При каждом проходе цикла перерисовывается экран
         gf.update_screen(ai_settings, screen, ship)
