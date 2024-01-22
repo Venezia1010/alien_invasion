@@ -19,6 +19,7 @@ def check_events(ship):
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 ship.moving_right = False
+                ship.image = pygame.image.load('images/sokol_1.png')
             elif event.key == pygame.K_LEFT:
                 ship.moving_left = False
             elif event.key == pygame.K_UP:
