@@ -25,6 +25,8 @@ class Ship:
         # Флаг перемещения
         self.moving_right = False
         self.moving_left = False
+        self.moving_top = False
+        self.movinr_bottom = False
     
 
     def update(self):
@@ -33,6 +35,10 @@ class Ship:
             self.rect.centerx += 1
         if self.moving_left:
             self.rect.centerx -= 1
+        if self.moving_top:
+            self.rect.centery -= 1
+        if self.movinr_bottom:
+            self.rect.centery += 1
 
     
     def blitme(self):

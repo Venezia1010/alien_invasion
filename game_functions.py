@@ -12,11 +12,19 @@ def check_events(ship):
                 ship.moving_right = True
             elif event.key == pygame.K_LEFT:
                 ship.moving_left = True
+            elif event.key == pygame.K_UP:
+                ship.moving_top = True
+            elif event.key == pygame.K_DOWN:
+                ship.movinr_bottom = True
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 ship.moving_right = False
             elif event.key == pygame.K_LEFT:
                 ship.moving_left = False
+            elif event.key == pygame.K_UP:
+                ship.moving_top= False
+            elif event.key == pygame.K_DOWN:
+                ship.movinr_bottom = False
 
 def update_screen(ai_settings, screen, ship):
     """Отображает изображения на экране и отображает новый экран"""
