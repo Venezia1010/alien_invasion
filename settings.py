@@ -1,3 +1,4 @@
+import pygame
 # модуль содержит класс с именем Settings для хранения всех настроек
 
 class Settings:
@@ -8,4 +9,8 @@ class Settings:
         self.screen_width = 1000
         self.screen_height = 600
         self.bg_color = (4, 16, 28)
+        self.bg_image = pygame.image.load('images/space.png')
+
+        # Настройка корабля
+        self.ship_speed_factor = 1.5
         

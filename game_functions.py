@@ -19,7 +19,6 @@ def check_events(ship):
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 ship.moving_right = False
-                ship.image = pygame.image.load('images/sokol_1.png')
             elif event.key == pygame.K_LEFT:
                 ship.moving_left = False
             elif event.key == pygame.K_UP:
@@ -29,5 +28,6 @@ def check_events(ship):
 
 def update_screen(ai_settings, screen, ship):
     """Отображает изображения на экране и отображает новый экран"""
-    screen.fill(ai_settings.bg_color)
+    #screen.fill(ai_settings.bg_color)
+    screen.blit(ai_settings.bg_image, (0, 0))
     ship.blitme()
