@@ -41,9 +41,9 @@ class Ship:
         if self.moving_left and self.screen_rect.left < self.rect.left:
             self.center -= self.ai_settings.ship_speed_factor
         if self.moving_top and self.screen_rect.top < self.rect.top:
-            self.rect.centery -= 1
+            self.rect.centery -= self.ai_settings.ship_speed_factor
         if self.movinr_bottom and self.screen_rect.bottom > self.rect.bottom:
-            self.rect.centery += 1
+            self.rect.centery += self.ai_settings.ship_speed_factor
         self.rect.centerx = self.center
 
     

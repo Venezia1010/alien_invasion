@@ -12,5 +12,5 @@ class Settings:
         self.bg_image = pygame.image.load('images/space.png')
 
         # Настройка корабля
-        self.ship_speed_factor = 1.5
+        self.ship_speed_factor = 7
         
