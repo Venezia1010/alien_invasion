@@ -10,7 +10,7 @@ def check_keydown_events(event, ship):
     elif event.key == pygame.K_UP:
         ship.moving_top = True
     elif event.key == pygame.K_DOWN:
-        ship.movinr_bottom = True
+        ship.moving_bottom = True
 
 
 def check_keyup_events(event, ship):
@@ -21,7 +21,7 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_UP:
         ship.moving_top= False
     elif event.key == pygame.K_DOWN:
-        ship.movinr_bottom = False
+        ship.moving_bottom = False
 
 
 def check_events(ship):
@@ -33,6 +33,7 @@ def check_events(ship):
             check_keydown_events(event, ship)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
+
 
 def update_screen(ai_settings, screen, ship):
     """Отображает изображения на экране и отображает новый экран"""
