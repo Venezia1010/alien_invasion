@@ -6,6 +6,7 @@ from settings import Settings
 from ship import Ship
 # Импорт модуля с функция для самой игры
 import game_functions as gf
+from pygame.sprite import Group
 
 def run_game():
     """Инициализирует pygame, settings и обьект экрана"""
@@ -21,11 +22,15 @@ def run_game():
     # рисовывается при каждом проходе цикла.
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+
     # Титл окна
     pygame.display.set_caption("Alien Invasion")
 
     # Создание корабля
     ship = Ship(ai_settings, screen)
+
+    # Создание группы для хранения пуль
+    bullets = Group()
     
 
 
@@ -33,11 +38,18 @@ def run_game():
     while True:
         # Отслеживание событий клавиатуры и мыши
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
-        gf.check_events(ship)
+        gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
+        bullets.update()
+
+        # Удаление пуль, вышедших за край экрана
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+
         
         # При каждом проходе цикла перерисовывается экран
-        gf.update_screen(ai_settings, screen, ship)
+        gf.update_screen(ai_settings, screen, ship, bullets)
         # Отображение последнего прорисованного экрана
         pygame.display.flip()
 
