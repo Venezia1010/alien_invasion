@@ -14,6 +14,8 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_bottom = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
+    elif event.key == pygame.K_q:
+        sys.exit()
 
 
 def check_keyup_events(event, ship):
@@ -38,7 +40,7 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, bullets):
+def update_screen(ai_settings, screen, ship, alien, bullets):
     """Отображает изображения на экране и отображает новый экран"""
     screen.fill(ai_settings.bg_color)
 
@@ -49,6 +51,7 @@ def update_screen(ai_settings, screen, ship, bullets):
 
     # screen.blit(ai_settings.bg_image, (0, 0))
     ship.blitme()
+    alien.blitme()
 
 
 def update_bullets(bullets):
