@@ -40,12 +40,10 @@ def run_game():
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        bullets.update()
+        gf.update_bullets(bullets)
 
         # Удаление пуль, вышедших за край экрана
-        for bullet in bullets.copy():
-            if bullet.rect.bottom <= 0:
-                bullets.remove(bullet)
+        
 
         
         # При каждом проходе цикла перерисовывается экран
