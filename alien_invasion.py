@@ -35,7 +35,11 @@ def run_game():
 
     # Создание группы для хранения пуль
     bullets = Group()
-    
+    aliens = Group()
+
+
+    # Создание флота пришельцев
+    gf.create_fleet(ai_settings, screen, aliens)
 
 
     # Запуск основного цикла управления игрой
@@ -46,12 +50,14 @@ def run_game():
         ship.update()
         gf.update_bullets(bullets)
 
-        # Удаление пуль, вышедших за край экрана
+        
         
 
         
         # При каждом проходе цикла перерисовывается экран
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+
+        
         # Отображение последнего прорисованного экрана
         pygame.display.flip()
 

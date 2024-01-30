@@ -6,7 +6,7 @@ class Settings:
     def __init__(self):
         """Инициализирует настройки игры"""
         # Параметры экрана
-        self.screen_width = 1000
+        self.screen_width = 1100
         self.screen_height = 600
         self.bg_color = (4, 16, 28)
         self.bg_image = pygame.image.load('images/space.png')
