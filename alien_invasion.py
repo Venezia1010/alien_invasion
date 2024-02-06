@@ -49,10 +49,8 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
-
+        gf.update_aliens(ai_settings, aliens)     
         
-        
-
         
         # При каждом проходе цикла перерисовывается экран
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
