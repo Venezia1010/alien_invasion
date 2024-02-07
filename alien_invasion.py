@@ -48,7 +48,7 @@ def run_game():
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        gf.update_bullets(aliens, bullets)
+        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
         gf.update_aliens(ai_settings, aliens)     
         
         
