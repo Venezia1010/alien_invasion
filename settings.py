@@ -9,10 +9,11 @@ class Settings:
         self.screen_width = 1100
         self.screen_height = 600
         self.bg_color = (4, 16, 28)
-        self.bg_image = pygame.image.load('images/space.png')
 
         # Настройка корабля
+        self.bg_image = pygame.image.load('images/space.png')
         self.ship_speed_factor = 1
+        self.ship_limit = 3
 
         # Настройки пули
         self.bullet_speed_factor = 1

@@ -6,6 +6,8 @@ from settings import Settings
 from ship import Ship
 # Модуль с пришельцем
 from alien import Alien
+# Модуль со статистикой
+from game_stats import GameStats
 # Импорт модуля с функция для самой игры
 import game_functions as gf
 from pygame.sprite import Group
@@ -28,8 +30,12 @@ def run_game():
     # Титл окна
     pygame.display.set_caption("Alien Invasion")
 
+    # Создание экземпляра для хранения игровой статистики
+    stats = GameStats(ai_settings)
+
     # Создание корабля
     ship = Ship(ai_settings, screen)
+
     # Создание пришельца
     alien = Alien(ai_settings, screen)
 
@@ -37,24 +43,21 @@ def run_game():
     bullets = Group()
     aliens = Group()
 
-
     # Создание флота пришельцев
     gf.create_fleet(ai_settings, screen,ship, aliens)
-
 
     # Запуск основного цикла управления игрой
     while True:
         # Отслеживание событий клавиатуры и мыши
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
         gf.check_events(ai_settings, screen, ship, bullets)
-        ship.update()
-        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
-        gf.update_aliens(ai_settings, aliens)     
-        
-        
+        if stats.game_active:
+            ship.update()
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)     
+                    
         # При каждом проходе цикла перерисовывается экран
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
-
         
         # Отображение последнего прорисованного экрана
         pygame.display.flip()

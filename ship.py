@@ -26,6 +26,7 @@ class Ship:
 
         # Сохранение вещественной координаты центра корабля
         self.center = float(self.rect.centerx)
+        self.bottom = float(self.rect.bottom)
 
         # Флаг перемещения
         self.moving_right = False
@@ -45,6 +46,12 @@ class Ship:
         if self.moving_bottom and self.screen_rect.bottom > self.rect.bottom:
             self.rect.centery += self.ai_settings.ship_speed_factor
         self.rect.centerx = self.center
+        
+
+    def center_ship(self):
+        """Размещает корабль в центре нижней стороны"""
+        self.center = self.screen_rect.centerx
+        self.rect.bottom = self.screen_rect.bottom
 
     
     def blitme(self):
