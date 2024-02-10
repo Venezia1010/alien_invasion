@@ -8,6 +8,8 @@ from ship import Ship
 from alien import Alien
 # Модуль со статистикой
 from game_stats import GameStats
+# Импорт модуляс кнопкой
+from button import Button
 # Импорт модуля с функция для самой игры
 import game_functions as gf
 from pygame.sprite import Group
@@ -39,6 +41,9 @@ def run_game():
     # Создание пришельца
     alien = Alien(ai_settings, screen)
 
+    # Создание кнопки Play
+    play_button = Button(ai_settings, screen, 'Play')
+
     # Создание группы для хранения пуль
     bullets = Group()
     aliens = Group()
@@ -57,7 +62,7 @@ def run_game():
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)     
                     
         # При каждом проходе цикла перерисовывается экран
-        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+        gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button)
         
         # Отображение последнего прорисованного экрана
         pygame.display.flip()

@@ -42,13 +42,17 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, aliens, bullets):
+def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button):
     """Отображает изображения на экране и отображает новый экран"""
     screen.fill(ai_settings.bg_color)
 
     # Все пули выводяться позади изображений корабля и пришельцев
     for bullet in bullets.sprites():
         bullet.draw_bullet()
+
+    # Кнопка Play отображается в том случае если игра неактивна
+    if not stats.game_active:
+        play_button.draw_button()
 
 
     # screen.blit(ai_settings.bg_image, (0, 0))
