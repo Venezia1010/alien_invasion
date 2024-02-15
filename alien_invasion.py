@@ -55,7 +55,7 @@ def run_game():
     while True:
         # Отслеживание событий клавиатуры и мыши
         # pygame.event.get() нужен для получения доступа к обнаруженным событиям
-        gf.check_events(ai_settings, screen, stats, play_button, ship, bullets)
+        gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
         if stats.game_active:
             ship.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
